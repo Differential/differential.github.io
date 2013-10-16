@@ -1,5 +1,5 @@
-name: accounts-entry
+name: Open Source
 markdown: redcarpet
 pygments: true
-baseurl: /accounts-entry
+baseurl: /
 exclude: ["vendor"]
