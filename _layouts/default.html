@@ -1,3 +1,8 @@
+---
+username: BeDifferential
+title: Open Source
+
+---
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,6 +14,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <link rel="icon" href="/favicon.ico" />
 
     <!-- CSS -->
@@ -20,69 +26,11 @@
 
     {% include header.html %}
 
-    <div class="billboard">
-      <div class="container">
-        <h1>
-          <img class="billboard-logo" src="/images/logo-orange-web.png"/>
-        </h1>
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <p class="lead">At Differential we lean on the community every single day. This is a chance for us to give something back.</p>
-          </div>
-        </div>
-        <div class="row stats">
-          <div class="col-sm-3 col-sm-offset-2">
-            <span>23</span>
-            Public Repos
-          </div>
-          <div class="col-sm-2">
-            <span>12</span>
-            GitHub Members
-          </div>
-          <div class="col-sm-3">
-            <span>1234</span>
-            Commits
-          </div>
-        </div>
-        <div class="buttons">
-          <a href="http://differential.io" class="btn btn-default btn-lg"><i class="icon-globe"></i> Visit our Website</a>
-          <a href="http://differential.io/contact" class="btn btn-default btn-lg"><i class="icon-envelope"></i> Contact Us</a>
-        </div>
-        <hr>
-      </div>
-    </div>
-
-    <div class="main container">
-      <div class="row">
-        <div class="col-md-3">
-          <ul class="sidebar">
-            <li {% if page.url == "/index.html" %}class="active"{% endif %}><a href="/">Projects</a></li>
-            <li {% if page.url == "/members.html" %}class="active"{% endif %}><a href="/members.html">Members</a></li>
-          </ul>
-        </div>
-        <div class="col-md-9">
-          {{ content }}
-        </div>
-      </div>
-    </div>
+    {{ content }}
 
     {% include footer.html %}
 
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-37961122-1']);
-      _gaq.push(['_setDomainName', 'differential.io']);
-      _gaq.push(['_setAllowLinker', true]);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
+    {% include scripts.html %}
 
   </body>
 </html>

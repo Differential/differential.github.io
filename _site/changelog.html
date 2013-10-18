@@ -9,6 +9,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <link rel="icon" href="/favicon.ico" />
 
     <!-- CSS -->
@@ -35,48 +36,7 @@
 </header>
 
 
-    <div class="billboard">
-      <div class="container">
-        <h1>
-          <img class="billboard-logo" src="/images/logo-orange-web.png"/>
-        </h1>
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <p class="lead">At Differential we lean on the community every single day. This is a chance for us to give something back.</p>
-          </div>
-        </div>
-        <div class="row stats">
-          <div class="col-sm-3 col-sm-offset-2">
-            <span>23</span>
-            Public Repos
-          </div>
-          <div class="col-sm-2">
-            <span>12</span>
-            GitHub Members
-          </div>
-          <div class="col-sm-3">
-            <span>1234</span>
-            Commits
-          </div>
-        </div>
-        <div class="buttons">
-          <a href="http://differential.io" class="btn btn-default btn-lg"><i class="icon-globe"></i> Visit our Website</a>
-          <a href="http://differential.io/contact" class="btn btn-default btn-lg"><i class="icon-envelope"></i> Contact Us</a>
-        </div>
-        <hr>
-      </div>
-    </div>
-
-    <div class="main container">
-      <div class="row">
-        <div class="col-md-3">
-          <ul class="sidebar">
-            <li ><a href="/">Projects</a></li>
-            <li ><a href="/members.html">Members</a></li>
-          </ul>
-        </div>
-        <div class="col-md-9">
-          <h1>Changelog</h1>
+    <h1>Changelog</h1>
 
 <h3>v0.2.10</h3>
 
@@ -115,9 +75,6 @@
 <li>Removed more differential naming from the package</li>
 </ul>
 
-        </div>
-      </div>
-    </div>
 
     <footer>
   <div class="container">
@@ -155,6 +112,63 @@
     </div>
   </div>
 </footer>
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37961122-1']);
+  _gaq.push(['_setDomainName', 'differential.io']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/html" id="repo-template">
+  <li>
+    <div class="row">
+      <div class="repo-title col-xs-8 col-md-3">
+        <a href="#">
+          <%= name %>
+        </a>
+      </div>
+      <div class="repo-meta col-xs-4 col-md-4 col-md-push-5">
+        <span>
+          <i class="icon-star"></i> <%= stars %>
+        </span>
+        <span class="language hidden-sm hidden-xs">
+          <%= language %>
+        </span>
+        <span class="github hidden-sm hidden-xs"><a href="<%= url %>">GitHub</a></span>
+      </div>
+      <div class="repo-desc col-xs-12 col-md-5 col-md-pull-4">
+        <%= description %>
+      </div>
+    </div>
+  </li>
+</script>
+
+<script type="text/javascript">
+  handleResponse = function(response){
+    var commits = 0;
+    var repoTemplate = $('#repo-template').html();
+    $.each(response.repos, function(i, e){
+      console.log(e);
+      commits += e.commits;
+      $('ul.repos').append(_.template(repoTemplate, e));
+    })
+    $('.public-repos').append(response.repos.length);
+    $('.commit-count').append(commits);
+  }
+
+  // test data: cross-domain origin policy prohibits these requests until we have our domains squared away
+  handleResponse({"repos":[{"id":"Z4azPHGF4Pdi2CCfG","name":"blog","description":"Meteor blog.","url":"http://github.com/bedifferential/blog","language":"CoffeeScript","commits":12,"stars":10,"createdAt":1382034219887},{"id":"oHqn6LorLxJLrJkQP","name":"accounts-entry","description":"Meteor sign up and sign in pages.","url":"http://github.com/bedifferential/accounts-entry","language":"CoffeeScript","commits":45,"stars":6,"createdAt":1382034219900}]})
+
+  //$.get('http://differential-9464.onmodulus.net/api/repos', handleResponse);
+</script>
 
   </body>
 </html>

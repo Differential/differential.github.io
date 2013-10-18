@@ -1,0 +1,56 @@
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37961122-1']);
+  _gaq.push(['_setDomainName', 'differential.io']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/html" id="repo-template">
+  <li>
+    <div class="row">
+      <div class="repo-title col-xs-8 col-md-3">
+        <a href="#">
+          <%= name %>
+        </a>
+      </div>
+      <div class="repo-meta col-xs-4 col-md-4 col-md-push-5">
+        <span>
+          <i class="icon-star"></i> <%= stars %>
+        </span>
+        <span class="language hidden-sm hidden-xs">
+          <%= language %>
+        </span>
+        <span class="github hidden-sm hidden-xs"><a href="<%= url %>">GitHub</a></span>
+      </div>
+      <div class="repo-desc col-xs-12 col-md-5 col-md-pull-4">
+        <%= description %>
+      </div>
+    </div>
+  </li>
+</script>
+
+<script type="text/javascript">
+  handleResponse = function(response){
+    var commits = 0;
+    var repoTemplate = $('#repo-template').html();
+    $.each(response.repos, function(i, e){
+      console.log(e);
+      commits += e.commits;
+      $('ul.repos').append(_.template(repoTemplate, e));
+    })
+    $('.public-repos').append(response.repos.length);
+    $('.commit-count').append(commits);
+  }
+
+  // test data: cross-domain origin policy prohibits these requests until we have our domains squared away
+  handleResponse({"repos":[{"id":"Z4azPHGF4Pdi2CCfG","name":"blog","description":"Meteor blog.","url":"http://github.com/bedifferential/blog","language":"CoffeeScript","commits":12,"stars":10,"createdAt":1382034219887},{"id":"oHqn6LorLxJLrJkQP","name":"accounts-entry","description":"Meteor sign up and sign in pages.","url":"http://github.com/bedifferential/accounts-entry","language":"CoffeeScript","commits":45,"stars":6,"createdAt":1382034219900}]})
+
+  //$.get('http://differential-9464.onmodulus.net/api/repos', handleResponse);
+</script>
