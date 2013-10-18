@@ -50,7 +50,7 @@
   }
 
   // test data: cross-domain origin policy prohibits these requests until we have our domains squared away
-  handleResponse({"repos":[{"id":"Z4azPHGF4Pdi2CCfG","name":"blog","description":"Meteor blog.","url":"http://github.com/bedifferential/blog","language":"CoffeeScript","commits":12,"stars":10,"createdAt":1382034219887},{"id":"oHqn6LorLxJLrJkQP","name":"accounts-entry","description":"Meteor sign up and sign in pages.","url":"http://github.com/bedifferential/accounts-entry","language":"CoffeeScript","commits":45,"stars":6,"createdAt":1382034219900}]})
+  //handleResponse({"repos":[{"id":"Z4azPHGF4Pdi2CCfG","name":"blog","description":"Meteor blog.","url":"http://github.com/bedifferential/blog","language":"CoffeeScript","commits":12,"stars":10,"createdAt":1382034219887},{"id":"oHqn6LorLxJLrJkQP","name":"accounts-entry","description":"Meteor sign up and sign in pages.","url":"http://github.com/bedifferential/accounts-entry","language":"CoffeeScript","commits":45,"stars":6,"createdAt":1382034219900}]})
 
-  //$.get('http://differential-9464.onmodulus.net/api/repos', handleResponse);
+  $.get('http://new.differential.io/api/repos', handleResponse);
 </script>
