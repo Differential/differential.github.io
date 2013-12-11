@@ -15,7 +15,7 @@
 <script type="text/html" id="repo-template">
   <li>
     <div class="row">
-      <div class="repo-title col-xs-8 col-md-3">
+      <div class="repo-title col-xs-8 col-md-3" title="<%= name %>">
         <a href="http://github.differential.io/<%= name %>">
           <%= name %>
         </a>
@@ -29,7 +29,7 @@
         </span>
         <span class="github hidden-sm hidden-xs"><a href="<%= url %>">GitHub</a></span>
       </div>
-      <div class="repo-desc col-xs-12 col-md-5 col-md-pull-4">
+      <div class="repo-desc col-xs-12 col-md-5 col-md-pull-4" title="<%= description %>">
         <%= description %>
       </div>
     </div>
