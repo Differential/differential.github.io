@@ -47,7 +47,8 @@
       $('ul.repos').append(_.template(repoTemplate, e));
     })
     $('.public-repos').append(response.repos.length);
-    $('.commit-count').append(commits);
+    $('.commit-count').append(parseInt(commits, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    
   }
 
   // test data: cross-domain origin policy prohibits these requests until we have our domains squared away
