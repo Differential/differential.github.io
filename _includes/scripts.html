@@ -16,9 +16,11 @@
   <li>
     <div class="row">
       <div class="repo-title col-xs-8 col-md-3" title="<%= name %>">
-        <a href="http://github.differential.io/<%= name %>">
-          <%= name %>
-        </a>
+        <% if (typeof branches !== 'undefined' && branches.length && branches.indexOf('gh-pages') >= 0) { %>
+          <a href="http://github.differential.io/<%= name %>"><%= name %></a>
+        <% } else { %>
+          <a href="<%= url %>"><%= name %></a>
+        <% } %>
       </div>
       <div class="repo-meta col-xs-4 col-md-4 col-md-push-5">
         <span>
@@ -41,7 +43,6 @@
     var commits = 0;
     var repoTemplate = $('#repo-template').html();
     $.each(response.repos, function(i, e){
-      console.log(e);
       commits += e.commits;
       $('ul.repos').append(_.template(repoTemplate, e));
     })
