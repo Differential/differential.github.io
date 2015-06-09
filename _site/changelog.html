@@ -6,7 +6,7 @@
     <title>Differential | Open Source</title>
     <meta name="description" content="A meteorite package for meteor sign up and sign in pages.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -85,7 +85,8 @@
             <h4>Differential</h4>
             <ul class="footer-col-menu">
               <li><a href="http://differential.com">Home</a></li>
-              <li><a href="http://differential.com/about">About</a></li>
+              <li><a href="http://differential.com/labs">Labs</a></li>
+              <li><a href="http://differential.com/services">Services</a></li>
               <li><a href="http://differential.com/team">Team</a></li>
               <li><a href="http://differential.com/blog">Blog</a></li>
               <li><a href="http://differential.com/contact">Contact</a></li>
@@ -94,7 +95,7 @@
           <div class="col-xs-6">
             <h4>Connect</h4>
             <ul class="footer-col-menu">
-              <li><a href="https://github.com/BeDifferential/">GitHub</a></li>
+              <li><a href="https://github.com/differential/">GitHub</a></li>
               <li><a href="https://www.twitter.com/BeDifferential">Twitter</a></li>
               <li><a href="https://www.facebook.com/ThinkDifferential">Facebook</a></li>
             </ul>
@@ -112,6 +113,7 @@
     </div>
   </div>
 </footer>
+
 
     <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -131,9 +133,11 @@
   <li>
     <div class="row">
       <div class="repo-title col-xs-8 col-md-3" title="<%= name %>">
-        <a href="http://github.differential.com/<%= name %>">
-          <%= name %>
-        </a>
+        <% if (typeof branches !== 'undefined' && branches.length && branches.indexOf('gh-pages') >= 0) { %>
+          <a href="http://github.differential.com/<%= name %>"><%= name %></a>
+        <% } else { %>
+          <a href="<%= url %>"><%= name %></a>
+        <% } %>
       </div>
       <div class="repo-meta col-xs-4 col-md-4 col-md-push-5">
         <span>
@@ -156,12 +160,12 @@
     var commits = 0;
     var repoTemplate = $('#repo-template').html();
     $.each(response.repos, function(i, e){
-      console.log(e);
       commits += e.commits;
       $('ul.repos').append(_.template(repoTemplate, e));
     })
     $('.public-repos').append(response.repos.length);
-    $('.commit-count').append(commits);
+    $('.commit-count').append(parseInt(commits, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    
   }
 
   // test data: cross-domain origin policy prohibits these requests until we have our domains squared away
