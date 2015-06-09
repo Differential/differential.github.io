@@ -34,6 +34,16 @@ p {
   margin: 0 0 20px;
 }
 
+/* Overiding Bootstrap Default */
+a {
+  color: @colorOrange;
+
+  &:hover {
+    color: @colorOrange;
+    opacity: 0.7;
+  }
+}
+
 ul {
   li {
     line-height: 1.5;
@@ -50,7 +60,7 @@ ul {
 }
 
 .navbar-inverse {
-  background: rgba(52, 73, 94, 1);
+  background: @colorNavy;
   filter: none;
   border: none;
   height: 60px;
@@ -78,7 +88,7 @@ ul {
 
       a {
         color: rgba(255,255,255,0.7);
-        font-weight: 600;
+        font-weight: 300;
         text-shadow: none;
         padding: 20px 15px 21px;
         font-size: 18px;
@@ -142,7 +152,7 @@ ul {
       display: block;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 60px;
-      color: @colorNavy;
+      color: @colorOrange;
     }
   }
 
@@ -280,9 +290,13 @@ ul.repos {
 // FOOTER
 
 footer {
-  background: #32393A;
+  background: @colorNavy
+    url("/images/world.png") left center no-repeat;
+  background-size: 70%;
   padding: 30px 0 50px;
   overflow: auto;
+  -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
 
   h4 {
     color: #fff;
