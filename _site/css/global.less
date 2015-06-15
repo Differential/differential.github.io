@@ -267,15 +267,16 @@ ul.repos {
     list-style: none;
     padding: 5px 15px 0 15px;
     margin-bottom: 5px;
+    background-color: #f9f9f9;
+
+    &:nth-child(odd) {
+      background-color: #fff;
+    }
 
     @media @tablet {
       height: 65px;
       padding: 0 10px;
       overflow: hidden;
-
-      &:hover {
-        background: #F9F9F9;
-      }
     }
 
     .repo-title {

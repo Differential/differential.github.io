@@ -338,15 +338,16 @@ ul.repos li {
   list-style: none;
   padding: 5px 15px 0 15px;
   margin-bottom: 5px;
+  background-color: #f9f9f9;
+}
+ul.repos li:nth-child(odd) {
+  background-color: #fff;
 }
 @media (min-width: 768px) {
   ul.repos li {
     height: 65px;
     padding: 0 10px;
     overflow: hidden;
-  }
-  ul.repos li:hover {
-    background: #F9F9F9;
   }
 }
 ul.repos li .repo-title {
