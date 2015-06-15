@@ -2,50 +2,50 @@
     BUTTONS
    =============================== */
 
-.bttn {
-  color: #fff;
-  border: none;
-  text-shadow: none;
-  display: inline-block;
-  text-transform: uppercase;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  border-radius: 5px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
+.btn {
+  font-family: "Bebas Neue", sans-serif;
+  color: @colorNavy;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid @colorNavy;
+  border-radius: 0px;
+  font-size: 24px;
   line-height: 30px;
   padding: 8px 18px;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  transition: all 0.2s ease;
+  z-index: 1;
+  .transition(.3s ease-in-out all);
+
+  i {
+    color: @colorOrange;
+    margin-left: 8px;
+    top: 1px;
+    position: relative;
+  }
+}
+
+.btn:not(.btn-link) {
+
+  &:before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: -500px;
+    left: -130%;
+    width: 110%;
+    height: 1000px;
+    background-color: @colorNavy;
+    .rotate(40deg);
+    .transition(.3s ease-in-out left);
+  }
 
   &:hover {
-    text-decoration: none;
     color: #fff;
-  }
+    border-color: #fff;
 
-  &:active {
-    -webkit-animation-duration: 0.5s;
-    -moz-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-    -webkit-animation-delay: 0s;
-    -moz-animation-delay: 0s;
-    animation-delay: 0s;
-    -webkit-animation-iteration-count: 1;
-    -moz-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-  }
-
-  span {
-    font-size: 12px;
-    display: block;
-    margin-top: -5px;
-    margin-left: 30px;
-    line-height: 20px;
-    text-transform: none;
-    color: rgba(0, 0, 0, 0.31);
+    &:before {
+      background-color: @colorNavy;
+      left: 0;
+    }
   }
 }
 
@@ -112,4 +112,17 @@
     display: inline-block;
     text-align: center;
   }
+}
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+        -o-transition: @transition;
+            transition: @transition;
+}
+
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees); // IE9 only
+       -o-transform: rotate(@degrees);
+          transform: rotate(@degrees);
 }
