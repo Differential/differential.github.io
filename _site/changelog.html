@@ -132,14 +132,16 @@
 <script type="text/html" id="repo-template">
   <li>
     <div class="row">
-      <div class="repo-title col-xs-8 col-md-3" title="<%= name %>">
+      <div class="repo-title" title="<%= name %>">
         <% if (typeof branches !== 'undefined' && branches.length && branches.indexOf('gh-pages') >= 0) { %>
           <a href="http://github.differential.com/<%= name %>"><%= name %></a>
         <% } else { %>
           <a href="<%= url %>"><%= name %></a>
         <% } %>
       </div>
-      <div class="repo-meta col-xs-4 col-md-4 col-md-push-5">
+    </div>
+    <div class="row">
+      <div class="repo-meta col-xs-4 col-md-4 col-md-push-8">
         <span>
           <i class="icon-star"></i> <%= stars %>
         </span>
@@ -147,7 +149,7 @@
           <%= language %>
         </span>
       </div>
-      <div class="repo-desc col-xs-12 col-md-5 col-md-pull-4" title="<%= description %>">
+      <div class="repo-desc col-xs-12 col-md-7 col-md-pull-4" title="<%= description %>">
         <%= description %>
       </div>
     </div>
