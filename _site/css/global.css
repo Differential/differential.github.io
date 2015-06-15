@@ -162,6 +162,9 @@ ul li {
 .navbar {
   margin-bottom: 0px;
   border-radius: 0px;
+  min-height: 80px;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
 }
 .navbar-inverse {
   background: #1d2937;
@@ -225,8 +228,9 @@ ul li {
   margin-right: 10px;
 }
 .billboard {
-  padding-top: 40px;
   text-align: center;
+  position: relative;
+  top: -10px;
 }
 .billboard h1 {
   max-width: 300px;
@@ -237,12 +241,21 @@ ul li {
 }
 .billboard .stats {
   text-align: center;
+  background-color: #f9f9f9;
+  padding: 40px 0;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
 }
 .billboard .stats span {
   display: block;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 60px;
   color: #df6826;
+}
+.billboard .stats .divider {
+  border-bottom: 3px #4e515d solid;
+  max-width: 80px;
+  margin: 0 auto 5px auto;
 }
 .billboard .buttons {
   margin-top: 50px;

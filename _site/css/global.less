@@ -57,6 +57,9 @@ ul {
 .navbar {
   margin-bottom: 0px;
   border-radius: 0px;
+  min-height: 80px;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
+clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
 }
 
 .navbar-inverse {
@@ -129,12 +132,12 @@ ul {
   }
 }
 
-
 // BILLBOARD
 
 .billboard {
-  padding-top: 40px;
   text-align: center;
+  position: relative;
+  top: -10px;
 
   h1 {
     max-width: 300px;
@@ -147,12 +150,22 @@ ul {
 
   .stats {
     text-align: center;
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
 
     span {
       display: block;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 60px;
       color: @colorOrange;
+    }
+
+    .divider {
+      border-bottom: 3px #4e515d solid;
+      max-width: 80px;
+      margin: 0 auto 5px auto;
     }
   }
 
