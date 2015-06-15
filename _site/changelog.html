@@ -146,7 +146,6 @@
         <span class="language hidden-sm hidden-xs">
           <%= language %>
         </span>
-        <span class="github hidden-sm hidden-xs"><a href="<%= url %>">GitHub</a></span>
       </div>
       <div class="repo-desc col-xs-12 col-md-5 col-md-pull-4" title="<%= description %>">
         <%= description %>
@@ -165,7 +164,7 @@
     })
     $('.public-repos').append(response.repos.length);
     $('.commit-count').append(parseInt(commits, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-    
+
   }
 
   // test data: cross-domain origin policy prohibits these requests until we have our domains squared away
