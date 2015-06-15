@@ -231,13 +231,14 @@ ul li {
   text-align: center;
   position: relative;
   top: -10px;
+  padding-bottom: 40px;
 }
 .billboard h1 {
   max-width: 300px;
   margin: auto;
 }
 .billboard .lead {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .billboard .stats {
   text-align: center;
@@ -258,7 +259,8 @@ ul li {
   margin: 0 auto 5px auto;
 }
 .billboard .buttons {
-  margin-top: 50px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .billboard .buttons a {
   margin-bottom: 10px;
@@ -268,9 +270,6 @@ ul li {
   .billboard .buttons a {
     display: inline-block;
   }
-}
-.billboard hr {
-  margin-top: 30px;
 }
 .sidebar {
   font-family: "Bebas Neue", sans-serif;
